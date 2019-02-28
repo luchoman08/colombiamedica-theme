@@ -64,4 +64,3 @@ class UnivalleThemePlugin extends ThemePlugin {
 }
 
 ?>
-
