@@ -48,7 +48,7 @@
 -->
 <!-------------------------------------------------------------------------- FOOTER UNIVALLE AMX-SOFTWARE.COM --------------------------------------------------->
 
-<div id="foot_rojo_univalle" class="" style="background-color:rgb(209, 46, 46); color:#fff;">
+<div class="foot_rojo_univalle">
     <br><br>
     <div class="row">
         <div class="col-sm-1 col-md-2 col-lg-2"></div>
