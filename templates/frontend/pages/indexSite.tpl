@@ -105,7 +105,7 @@
                     </li>
                 {/iterate}
             </ul>
-
+		<!--span style="color:white;">_</span-->
             {if $journals->getPageCount() > 0}
                 <div class="cmp_pagination">
                     {page_info iterator=$journals}
