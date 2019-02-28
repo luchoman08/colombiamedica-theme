@@ -1,0 +1,10 @@
+
+.pkp_page_index .journals h3 a {
+    text-decoration: none;
+    display: block;
+}
+
+.journals .body h3 {
+    min-height: 46px;
+    background-color: #FF0029;
+}
