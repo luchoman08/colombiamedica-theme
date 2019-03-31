@@ -47,7 +47,7 @@ color: #ffffff !important;
 }
 
 .obj_issue_toc .articles > li {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     border: 1px solid lightgray;
     border-radius: 4px;
     padding: 15px;
@@ -59,38 +59,106 @@ color: #ffffff !important;
 
 #pdfs_numero_visible {
     margin-top: 1px;
-    padding: 5%;
+    padding-left: 4%;
 }
 
-/*
+.obj_issue_toc .section{
+    padding: 30px 20px 0px 20px !important;
+    position: realtive !important;
+    margin: 0px -30px !important;
+}
+
+/* BLOQUE CAMBIO DE LENGUAJE */
 
 .block_language{
-margin-left: 5%;
-margin-right: 20%;
-position: fixed;
-top: 0;
-left: 0;
-z-index: 2;
-width: 50%;
+    margin-left: 5%;
+    margin-right: 20%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 50%;
+    }
+    .block_language .content {
+        padding-top: 3px;
+    }
+    .block_language span {
+        display: none !important;
+        visibility: hidden;
+        margin-bottom: 0 !important;
+    }
+    .block_language .content ul li {
+     line-height: 20px;
+    display: inline;
+    padding: 7px;
+    margin: 3px;
+    background: #da251d;
+    border: 1px solid white;
+    font: "normal normal normal 14px/1 FontAwesome";
+    }
+    .block_language .content li a{
+	
+        font-weight: normal !important;		
+        color: white !important;
+        
+    
+    }
+    .block_language .content li a:hover {
+        font-weight: bold !important;
+      text-decoration: none !important;
+    }
+
+    /*PADDING VOLUMEN*/
+
+    .page_index_journal {
+        padding-top: 10px !important;
+        padding-bottom: -3px !important;
+        padding-left: 10% !important;
+        padding-right: 10% !important;
+    }
+
+    /* botton envio propuesta */
+.pkp_block.block_make_submission .content {
+	text-align: center;
+	padding: 10px;
+}
+.pkp_block.block_make_submission a {
+    text-align: center !important;
+    background: #da251d !important;
+    top: 196px !important;
+    height: 40px !important;
+    color: #fff !important;
+    font-family: "Noto Sans" !important;
+    font-size: 15px !important;
+    /* font-weight: 700 !important; */
+    line-height: 23px !important;
+    padding-left: 17px !important;
+    padding-top: 7px !important;
 }
 
-.block_language .content {
-    padding-top: 3px;
+
+/*READ MORE*/
+
+.pkp_page_index .current_issue .read_more {
+
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+    color: #da251d !important;
+    text-decoration: none;
+    margin-bottom: 20px;
+    background: transparent;
+    font-weight: 700;
+
 }
 
-.block_language .tittle {
-    display: none !important;
+.pkp_page_index .current_issue .read_more:hover {
+
+    color: red;
 }
 
-.block_language .content ul li {
- line-height: 20px;
-display: inline;
-padding: 7px;
-margin: 3px;
-background: #717171;
-}
+/*HEAD*/
 
-.block_language .content li a:hover {
-    font-weight: bold !important;
+.pkp_head_wrapper {
+    padding-top: 40px !important;
 }
-*/
