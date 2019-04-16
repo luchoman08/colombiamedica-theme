@@ -89,7 +89,7 @@
                 <div class="pkp_navigation_primary_wrapper">
 
                     {* Primary navigation menu for current application *}
-                    {include file="frontend/components/primaryNavMenu.tpl"}
+			{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
 
                     {* Search form *}
                     {include file="frontend/components/searchForm_simple.tpl"}
