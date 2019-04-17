@@ -22,8 +22,29 @@ class UnivalleThemePlugin extends ThemePlugin {
 	 */
 	public function init() {
 
+		/*
 		$this->setParent('defaultthemeplugin');
 		$this->addStyle('child-stylesheet', 'styles/index.less');
+		*/
+
+		$base_url = Config::getVar('general', 'base_url');
+		$lessVariables = ["@theme_name: 'univalle';", "@base_url: '$base_url';"];
+		$this->setParent('defaultthemeplugin');
+		$this->addStyle(
+			'child-stylesheet',
+			'styles/index.less',
+			array('addLessVariables' => join($lessVariables)));	
+		$this->addStyle('child-stylesheet-boot', 'bootstrap/css/bootstrap.min.css');
+
+		
+		// Load Bootsrap's dropdown
+		$this->addScript('popper', 'js/lib/popper/popper.js');
+		$this->addScript('bsUtil', 'js/lib/bootstrap/util.js');
+		$this->addScript('bsDropdown', 'js/lib/bootstrap/dropdown.js');
+		$this->addScript('bsJs', 'bootstrap/js/bootstrap.min.js');
+
+		// Load custom JavaScript for this theme
+		$this->addScript('default', 'js/main.js');
 
 	}
 
