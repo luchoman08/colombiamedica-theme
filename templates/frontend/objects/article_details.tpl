@@ -95,7 +95,7 @@
 
 		{* BARRA DE NAVEGACION*}
 
-						<ul id="myTabs" class="nav nav-tabs" role="tablist">
+						<ul id="myTabs" class="nav nav-tabs nav_info_article" role="tablist">
 							{if $article->getLocalizedAbstract()}
 								
 									<li role="presentation" class="active"><a href="#abstract" id="abstract-tab" role="tab" data-toggle="tab" aria-controls="abstract" aria-expanded="true">
@@ -109,8 +109,8 @@
 									<li role="presentation" >
 										<a href="#subject"  role="tab" id="subject-tab" data-toggle="tab" aria-controls="subject">
 											<span class="glyphicon glyphicon-tags" aria-hidden="true"></span> 
-											<strong>{capture assign=translatedKeywords}{translate key="article.subject"}{/capture}
-											{translate key="semicolon" label=$translatedKeywords}</strong>
+											<strong>{*capture assign=translatedKeywords*}{translate key="article.subject"}{*/capture*}
+											{*translate key="semicolon" label=$translatedKeywords*}</strong>
 										</a>
 									</li>
 							
@@ -149,7 +149,7 @@
 				{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
 				{if $pubId}
 					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-					<div class="item doi">
+					<div class="item doi content_doi">
 						<label>
 							{capture assign=translatedDOI}{translate key="plugins.pubIds.doi.readerDisplayName"}{/capture}
 							{translate key="semicolon" label=$translatedDOI}
@@ -176,10 +176,11 @@
 			{* Keywords *}
 			{if !empty($keywords[$currentLocale])}
 			<div id="subject"  role="tabpanel" class="amx-div-tabs tab-pane fade" aria-labelledby="subject-tab">
-				<h3>
-					{capture assign=translatedKeywords}{translate key="article.subject"}{/capture}
-					{translate key="semicolon" label=$translatedKeywords}
+				<h3 class="label">
+					{*capture assign=translatedKeywords*}{translate key="article.subject"}{*/capture*}
+					{*translate key="semicolon" label=$translatedKeywords*}
 				</h3>
+				<p>
 				<span class="value">
 					{foreach from=$keywords item=keyword}
 						{foreach name=keywords from=$keyword item=keywordItem}
@@ -187,6 +188,7 @@
 						{/foreach}
 					{/foreach}
 				</span>
+				</p>
 			</div>
 			{/if}
 
