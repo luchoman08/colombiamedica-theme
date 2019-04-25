@@ -290,17 +290,15 @@
 			{/if}
 
 			{* Article Galleys *}
-			{if $primaryGalleys}
 				<div class="item galleys">
 					<ul class="value galleys_links">
-						{foreach from=$primaryGalleys item=galley}
+				{foreach from=$article->getGalleys() item=galley}
 							<li>
-								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley}
 							</li>
 						{/foreach}
 					</ul>
 				</div>
-			{/if}
 			{if $supplementaryGalleys}
 				<div class="item galleys">
 					<ul class="value supplementary_galleys_links">
