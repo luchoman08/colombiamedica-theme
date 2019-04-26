@@ -168,15 +168,45 @@
 			{* Abstract *}
 			{if $article->getLocalizedAbstract()}
 				<div id="abstract" role="tabpanel" class="amx-div-tabs tab-pane fade in active" aria-labelledby="abstract-tab">
-					<h3 class="label">{translate key="article.abstract"}</h3>
+				<h3 class="label label_h3">{translate key="article.abstract"}</h3>
 					{$article->getLocalizedAbstract()|strip_unsafe_html}
+			{*Authors*}
+			
+				<h3 class="label label_h3">{translate key="article.authors"}</h3>		
+			
+				{if $article->getAuthors()}
+				
+					<ul class="item authors">
+					{foreach from=$article->getAuthors() item=author}
+						<li>
+							<span class="name">
+								{$author->getFullName()|escape}
+							</span>
+							{if $author->getLocalizedAffiliation()}
+								<span class="affiliation">
+									{$author->getLocalizedAffiliation()|escape}
+								</span>
+							{/if}
+							{if $author->getOrcid()}
+								<span class="orcid">
+									{$orcidIcon}
+									<a href="{$author->getOrcid()|escape}" target="_blank">
+										{$author->getOrcid()|escape}
+									</a>
+								</span>
+							{/if}
+						</li>
+					{/foreach}
+				</ul>
+			{/if}
+					
 				</div>
 			{/if}
 
 			{* Keywords *}
 			{if !empty($keywords[$currentLocale])}
 			<div id="subject"  role="tabpanel" class="amx-div-tabs tab-pane fade" aria-labelledby="subject-tab">
-				<h3 class="label">
+				<h3 class="label label_h3">
 					{*capture assign=translatedKeywords*}{translate key="article.subject"}{*/capture*}
 					{*translate key="semicolon" label=$translatedKeywords*}
 				</h3>
@@ -225,7 +255,7 @@
 			
 			{if $hasBiographies}
 				<div id="authorBiographies" role="tabpanel" class="amx-div-tabs tab-pane fade" aria-labelledby="authorBiographies-tab">
-					<h3 class="label">
+					<h3 class="label label_h3">
 						{if $hasBiographies > 1}
 							{translate key="submission.authorBiographies"}
 						{else}
@@ -256,7 +286,7 @@
 			{* References *}
 			{if $parsedCitations->getCount() || $article->getCitations()}
 				<div id="citations" role="tabpanel" class="amx-div-tabs tab-pane fade" aria-labelledby="citations-tab">
-					<h3 class="label">
+					<h3 class="label label_h3">
 						{translate key="submission.citations"}
 					</h3>
 					<div class="value">
