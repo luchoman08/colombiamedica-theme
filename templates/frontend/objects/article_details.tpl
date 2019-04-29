@@ -91,6 +91,27 @@
 		{* pruebas *}
 		
     
+			{* DOI (requires plugin) *}
+			{foreach from=$pubIdPlugins item=pubIdPlugin}
+				{if $pubIdPlugin->getPubIdType() != 'doi'}
+					{php}continue;{/php}
+				{/if}
+				{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
+				{if $pubId}
+					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+					<div class="item doi content_doi">
+						<label>
+							{capture assign=translatedDOI}{translate key="plugins.pubIds.doi.readerDisplayName"}{/capture}
+							{translate key="semicolon" label=$translatedDOI}
+						<label>
+						<span class="value">
+							<a href="{$doiUrl}">
+								{$doiUrl}
+							</a>
+						</span>
+					</div>
+				{/if}
+			{/foreach}
   
 
 		{* BARRA DE NAVEGACION*}
@@ -141,27 +162,6 @@
 						</ul>
 					
 
-			{* DOI (requires plugin) *}
-			{foreach from=$pubIdPlugins item=pubIdPlugin}
-				{if $pubIdPlugin->getPubIdType() != 'doi'}
-					{php}continue;{/php}
-				{/if}
-				{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
-				{if $pubId}
-					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-					<div class="item doi content_doi">
-						<label>
-							{capture assign=translatedDOI}{translate key="plugins.pubIds.doi.readerDisplayName"}{/capture}
-							{translate key="semicolon" label=$translatedDOI}
-						<label>
-						<span class="value">
-							<a href="{$doiUrl}">
-								{$doiUrl}
-							</a>
-						</span>
-					</div>
-				{/if}
-			{/foreach}
 
 	<div id="myTabContent" class="tab-content">
 
@@ -210,15 +210,13 @@
 					{*capture assign=translatedKeywords*}{translate key="article.subject"}{*/capture*}
 					{*translate key="semicolon" label=$translatedKeywords*}
 				</h3>
-				<p>
-				<span class="value">
+				<ul id="keywords_list" class="content_keywords">
 					{foreach from=$keywords item=keyword}
 						{foreach name=keywords from=$keyword item=keywordItem}
-							{$keywordItem|escape}{if !$smarty.foreach.keywords.last}, {/if}
+							<li>{$keywordItem|escape}</li>{*if !$smarty.foreach.keywords.last}, {/if*}
 						{/foreach}
 					{/foreach}
-				</span>
-				</p>
+				</ul>
 			</div>
 			{/if}
 
