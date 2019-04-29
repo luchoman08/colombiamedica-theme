@@ -199,7 +199,9 @@
 					{/foreach}
 				</ul>
 			{/if}
-					
+			
+			{*Include usageStats*}
+								{call_hook name="Templates::Article::Main"}
 				</div>
 			{/if}
 
@@ -247,7 +249,7 @@
 				</ul>
 			{/if}
 		*}
-			{call_hook name="Templates::Article::Main"}
+
 
 			{* Author biographies / la asignacion de la variable esta al inicio de la pag*}
 			
