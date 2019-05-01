@@ -41,7 +41,7 @@
 		
 			{foreach from=$languageToggleLocales item=localeName key=localeKey}
 				
-					<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey source=$smarty.server.REQUEST_URI}" type="button" class="btn dark-a-btn locale_{$localeKey|escape}{if $localeKey == $currentLocale} current{/if}">
+					<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey source=$smarty.server.REQUEST_URI}" type="button" class="btn dark-a-btn locale_{$localeKey|escape}{if $localeKey == $currentLocale} current-lng{/if}">
 						{$localeName}
 					</a>
 				
@@ -52,7 +52,7 @@
 		
 			{foreach from=$languageToggleLocales item=localeName key=localeKey}
 				
-					<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey source=$smarty.server.REQUEST_URI}" type="button" class="btn btn-xs dark-a-btn locale_{$localeKey|escape}{if $localeKey == $currentLocale} current{/if}">
+					<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey source=$smarty.server.REQUEST_URI}" type="button" class="btn btn-xs dark-a-btn locale_{$localeKey|escape}{if $localeKey == $currentLocale} current-lng{/if}">
 						{$localeName}
 					</a>
 				
